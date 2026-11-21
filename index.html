@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>StudyBuddy AI</title>
+	<!-- Fits phone screens -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Poppins font from Google Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<h1>📚 StudyBuddy AI</h1>
+	<p class="tagline">Your smart study partner</p>
+
+	<div class="cards">
+		<a href="tutor.html" class="card">🤖<h3>AI Tutor</h3><p>Ask any doubt</p></a>
+		<a href="snap.html" class="card">📸<h3>Snap &amp; Learn</h3><p>Scan your notes</p></a>
+		<a href="quiz.html" class="card">📝<h3>Quiz Me</h3><p>Test yourself</p></a>
+	</div>
+
+	<!-- Topics to revise (filled by the script below) -->
+	<div id="revise"></div>
+
+	<script>
+		// Read saved weak topics from the browser's storage
+		const topics = JSON.parse(localStorage.getItem("weakTopics") || "[]");
+		if (topics.length > 0) {
+			const box = document.getElementById("revise");
+			box.textContent = "📌 Revise next: " + topics.join(", ");
+			box.style.display = "block";
+		}
+	</script>
+
+</body>
+</html>
