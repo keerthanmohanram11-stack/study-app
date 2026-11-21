@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Tutor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a href="index.html" class="back">← Back</a>
+  <h1>🤖 AI Tutor</h1>
+  <p class="tagline">Ask any doubt. I'll explain step by step.</p>
+
+  <div id="chat"></div>
+
+  <div class="input-row">
+    <input type="text" id="question" placeholder="e.g. What is photosynthesis?">
+    <button class="main-btn" onclick="ask()">Send</button>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/tutor.js"></script>
+</body>
+</html>
