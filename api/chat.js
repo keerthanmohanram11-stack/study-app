@@ -1,12 +1,15 @@
 // Models to try, in order. If one is busy, try the next.
 const MODELS = ["gemini-flash-latest", "gemini-flash-lite-latest"];
 
+const DEFAULT_SYSTEM = "You are StudyBuddy, a friendly tutor for students. Explain in simple words, step by step.";
+
 module.exports = async (req, res) => {
   if (req.method !== "POST") {
     return res.status(405).json({ reply: "Please use POST" });
   }
 
-  const { prompt, image, json } = req.body || {};
+  // What the page sent: the question, an optional photo, JSON mode, and the AI's instructions
+  const { prompt, image, json, system } = req.body || {};
   if (!prompt) {
     return res.status(400).json({ reply: "No question was sent" });
   }
@@ -17,9 +20,7 @@ module.exports = async (req, res) => {
   }
 
   const body = {
-    systemInstruction: {
-      parts: [{ text: "You are StudyBuddy, a friendly tutor for school students. Explain in simple words, step by step, with short examples." }]
-    },
+    systemInstruction: { parts: [{ text: (system || DEFAULT_SYSTEM).slice(0, 1500) }] },
     contents: [{ role: "user", parts: parts }]
   };
   if (json) {
@@ -52,5 +53,5 @@ module.exports = async (req, res) => {
     }
   }
 
-  res.status(500).json({ reply: "AI is busy right now, please try again in a minute. (" + lastError + ")" });
+  res.status(500).json({ reply: "The AI is busy right now. Please try again in a minute. (" + lastError + ")" });
 };

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to StudyBuddy AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="js/common.js"></script>
+</head>
+<body>
+<main class="app" style="padding-bottom: 40px">
+
+  <div class="glass card" style="text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px">
+    <svg width="120" height="110" viewBox="0 0 120 120" aria-hidden="true">
+      <circle cx="60" cy="62" r="48" fill="var(--tint)"/>
+      <path d="M22 78 L60 88 L98 78 L98 46 L60 56 L22 46 Z" fill="#FFFFFF" stroke="#8B7CF6" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M60 56 L60 88" stroke="#8B7CF6" stroke-width="2"/>
+      <circle cx="60" cy="30" r="13" fill="#FFD67A"/>
+      <path d="M100 26 l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#FF8FC4"/>
+      <path d="M18 30 l1.5 3.5 3.5 1.5-3.5 1.5-1.5 3.5-1.5-3.5-3.5-1.5 3.5-1.5z" fill="#7FC8FF"/>
+    </svg>
+    <h1>Welcome to StudyBuddy AI</h1>
+    <p class="muted">Let's set up your own AI study partner. You can change this any time in Settings.</p>
+  </div>
+
+  <div class="glass card" style="display: flex; flex-direction: column; gap: 10px">
+    <label for="name">What's your name?</label>
+    <input type="text" id="name" placeholder="Your name" maxlength="30">
+    <p id="nameError" style="color: var(--bad); font-size: 13px; display: none">Please type your name first.</p>
+  </div>
+
+  <div class="glass card" style="display: flex; flex-direction: column; gap: 10px">
+    <label>Which class are you in?</label>
+    <div class="pills" id="levelBox">
+      <button class="pill" data-value="Class 6 to 8">Class 6–8</button>
+      <button class="pill" data-value="Class 9 to 10">Class 9–10</button>
+      <button class="pill" data-value="Class 11 to 12">Class 11–12</button>
+      <button class="pill" data-value="College">College</button>
+      <button class="pill" data-value="Everyone">Other</button>
+    </div>
+  </div>
+
+  <div class="glass card" style="display: flex; flex-direction: column; gap: 10px">
+    <label>Choose your AI expert</label>
+    <div class="pills" id="expertBox">
+      <button class="pill" data-value="General tutor">🎓 All-rounder</button>
+      <button class="pill" data-value="Maths expert">➗ Maths expert</button>
+      <button class="pill" data-value="Science expert">🔬 Science expert</button>
+      <button class="pill" data-value="English and language coach">📖 English coach</button>
+      <button class="pill" data-value="History and social science expert">🌍 Social science</button>
+      <button class="pill" data-value="Coding mentor">💻 Coding mentor</button>
+      <button class="pill" data-value="Exam coach">🏆 Exam coach</button>
+    </div>
+  </div>
+
+  <div class="glass card" style="display: flex; flex-direction: column; gap: 10px">
+    <label>How should your AI talk to you?</label>
+    <div class="pills" id="personalityBox">
+      <button class="pill" data-value="Friendly buddy">😊 Friendly buddy</button>
+      <button class="pill" data-value="Calm teacher">🧘 Calm teacher</button>
+      <button class="pill" data-value="Funny and fun">😂 Funny and fun</button>
+      <button class="pill" data-value="Strict coach">💪 Strict coach</button>
+    </div>
+  </div>
+
+  <button class="btn" id="startBtn" style="width: 100%">Let's start 🚀</button>
+
+</main>
+<script src="js/welcome.js"></script>
+</body>
+</html>

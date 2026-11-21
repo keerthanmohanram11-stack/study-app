@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Progress</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="js/common.js"></script>
+</head>
+<body>
+<main class="app">
+
+  <div>
+    <h1>📊 My Progress</h1>
+    <p class="muted">See how you're doing and where to improve.</p>
+  </div>
+
+  <!-- Numbers -->
+  <div class="grid-2">
+    <div class="glass stat"><span class="muted">Level</span><b id="level">1</b></div>
+    <div class="glass stat"><span class="muted">Total XP</span><b id="xp">0</b></div>
+    <div class="glass stat"><span class="muted">Day streak</span><b id="streak">0</b></div>
+    <div class="glass stat"><span class="muted">Questions answered</span><b id="answered">0</b></div>
+  </div>
+
+  <!-- Chart: score by subject -->
+  <div class="glass card">
+    <h3>Score by subject</h3>
+    <p class="muted" id="subjectEmpty" style="margin-top: 6px">Take a quiz to see this chart.</p>
+    <canvas id="subjectChart" height="220"></canvas>
+  </div>
+
+  <!-- Chart: study activity -->
+  <div class="glass card">
+    <h3>Study activity this week</h3>
+    <canvas id="activityChart" height="200"></canvas>
+  </div>
+
+  <!-- Weak & strong topics -->
+  <div class="glass card" style="display: flex; flex-direction: column; gap: 10px">
+    <h3>🎯 Work on these</h3>
+    <div class="pills" id="weakList"><span class="muted">Nothing yet. Great!</span></div>
+    <h3 style="margin-top: 6px">💪 You're strong in</h3>
+    <div class="pills" id="strongList"><span class="muted">Take quizzes to find out.</span></div>
+  </div>
+
+  <!-- AI coach -->
+  <div class="glass card" style="display: flex; flex-direction: column; gap: 12px">
+    <div class="row"><span class="dot"></span><h3>AI Study Coach</h3></div>
+    <p class="muted">Get a personal plan based on your results.</p>
+    <button class="btn" id="coachBtn">Give me my study plan</button>
+    <div id="coachText" class="answer"></div>
+  </div>
+
+</main>
+
+<nav class="nav glass" aria-label="Main menu">
+  <a href="index.html" aria-label="Home"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></a>
+  <a href="tutor.html" aria-label="AI Tutor"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></a>
+  <a href="quiz.html" aria-label="Quiz"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="3"/><path d="M9 9l2 2 4-4M9 16h6"/></svg></a>
+  <a href="progress.html" class="active" aria-label="Progress"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></a>
+  <a href="settings.html" aria-label="Settings"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></a>
+</nav>
+
+<!-- Chart library (draws the graphs) -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="js/progress.js"></script>
+</body>
+</html>
