@@ -1,6 +1,7 @@
 const chat = document.getElementById("chat");
 const input = document.getElementById("question");
-const chatHistory = [];   // remembers the conversation
+const sendBtn = document.getElementById("sendBtn");
+const chatHistory = [];
 
 async function ask() {
   const question = input.value.trim();
@@ -25,7 +26,6 @@ async function ask() {
   chat.scrollTop = chat.scrollHeight;
 }
 
-// Adds one chat bubble and returns it
 function addMessage(text, who) {
   const div = document.createElement("div");
   div.className = "msg " + who;
@@ -35,7 +35,7 @@ function addMessage(text, who) {
   return div;
 }
 
-// Press Enter to send
+sendBtn.addEventListener("click", ask);
 input.addEventListener("keydown", (e) => {
   if (e.key === "Enter") ask();
 });

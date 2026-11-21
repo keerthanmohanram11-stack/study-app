@@ -5,6 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .input-row {
+      display: flex;
+      gap: 10px;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+    .input-row input {
+      flex: 1;
+      width: auto;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+    }
+    .send-btn {
+      flex-shrink: 0;
+      padding: 14px 22px;
+      border: none;
+      border-radius: 12px;
+      background: #a78bfa;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .send-btn:hover { background: #8b5cf6; }
+  </style>
 </head>
 <body>
 
@@ -16,7 +43,7 @@
 
   <div class="input-row">
     <input type="text" id="question" placeholder="e.g. What is photosynthesis?">
-    <button class="main-btn" onclick="ask()">Send</button>
+    <button class="send-btn" id="sendBtn">Send ➤</button>
   </div>
 
   <script src="js/common.js"></script>
