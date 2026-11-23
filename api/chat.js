@@ -59,8 +59,12 @@ module.exports = async (req, res) => {
     if (image) return res.status(200).json({ reply: await askGemini(sys, prompt, image, json) });
     try {
       return res.status(200).json({ reply: await askGroq(sys, prompt, json) });
-    } catch (groqErr) {
-      return res.status(200).json({ reply: await askGemini(sys, prompt, null, json) });
+        } catch (groqErr) {
+      try {
+        return res.status(200).json({ reply: await askGemini(sys, prompt, null, json) });
+      } catch (geminiErr) {
+        return res.status(500).json({ reply: "Groq: " + groqErr.message + " | Gemini: " + geminiErr.message });
+      }
     }
   } catch (err) {
     res.status(500).json({ reply: "The AI is busy right now. Please try again in a minute. (" + err.message + ")" });
